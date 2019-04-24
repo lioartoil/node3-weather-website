@@ -18,11 +18,11 @@ const forecast = (lat, long, callback) => {
 				return callback('Unable to find location');
 			}
 
-			const { summary, temperatureMin: min, temperatureMax: max } = data[0];
+			const { summary, temperatureLow: low, temperatureHigh: high } = data[0];
 
 			callback(
 				undefined,
-				`${summary} It is currently ${temperature} degrees out (range from ${min} - ${max} °C). There is a ${precipProbability *
+				`${summary} It is currently ${temperature} degrees out. This high today is ${high} with a low of ${low} °C. There is a ${precipProbability *
 					100}% chance of rain.`
 			);
 		}
